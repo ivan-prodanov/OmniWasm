@@ -1,0 +1,58 @@
+﻿<Project Sdk="Wasm.Sdk/1.0.0">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<SourceGenerator_EnableDebug>false</SourceGenerator_EnableDebug>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateDocumentation>true</GenerateDocumentation>
+    <ExcludeXmlAssemblyFiles>false</ExcludeXmlAssemblyFiles>
+    <DefaultAssemblyDocumentationWhitelist>*.xml</DefaultAssemblyDocumentationWhitelist>
+    <WasmPackageOutputPath>..\..\js\core</WasmPackageOutputPath>
+    <Version>0.5.2</Version>
+  </PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<!--<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>-->
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Features" Version="3.9.0" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+		<PackageReference Include="System.Console" Version="4.3.1" />
+		<PackageReference Include="Uno.SQLitePCLRaw.provider.wasm" Version="3.0.14" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\OmniSharp.Abstractions\OmniSharp.Abstractions.csproj" />
+	  <ProjectReference Include="..\OmniSharp.Roslyn.CSharp\OmniSharp.Roslyn.CSharp.csproj" />
+	  <ProjectReference Include="..\OmniSharp.Roslyn\OmniSharp.Roslyn.csproj" />
+	  <ProjectReference Include="..\OmniSharp.Shared\OmniSharp.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<IncludeAssemblies Include="Microsoft.CodeAnalysis.CSharp.Features.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+    <!--<_CustomFiles Include="bin\(Configuration)\(Platform)\*.xml" />-->
+		<Reference Include="SQLitePCLRaw.core">
+		  <HintPath>SQLitePCLRaw.core.dll</HintPath>
+		</Reference>
+		<Reference Include="System.Private.Runtime.InteropServices.JavaScript">
+			<HintPath>System.Private.Runtime.InteropServices.JavaScript.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+		
+	<!-- Copy Documentation of every reference -->
+    <!--Target Name="CopyReferenceFiles" BeforeTargets="Build">
+		<ItemGroup>
+			<ReferenceFiles Include="%(Reference.RelativeDir)%(Reference.Filename).xml" />
+		</ItemGroup>
+    
+		<Message Text="Copying reference files to $(OutputPath)" Importance="High" />
+		<Copy SourceFiles="@(ReferenceFiles)" DestinationFolder="$(OutputPath)" Condition="Exists('%(RootDir)%(Directory)%(Filename)%(Extension)')" />
+	</Target>-->
+
+</Project>

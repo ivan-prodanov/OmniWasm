@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net5.0</TargetFrameworks>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <IsPackable>true</IsPackable>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\OmniSharp.Abstractions\OmniSharp.Abstractions.csproj" />
+        <ProjectReference Include="..\OmniSharp.Roslyn\OmniSharp.Roslyn.csproj" />
+        <ProjectReference Include="..\OmniSharp.Shared\OmniSharp.Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.Reactive" Version="5.0.0" />
+        <PackageReference Include="ICSharpCode.Decompiler" Version="6.2.1.6137" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.9.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Features" Version="3.9.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.9.0" />
+    </ItemGroup>
+</Project>
