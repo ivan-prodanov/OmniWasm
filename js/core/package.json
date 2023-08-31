@@ -1,6 +1,6 @@
 {
   "name": "omniwasm",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "author": "Ivan Prodanov",
   "description": "Auto-generated .net wasm package that exports ts/js consumables for OmniWasm",
   "license": "MIT",
